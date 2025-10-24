@@ -4,9 +4,13 @@ import morgan from "morgan";
 import fs from "fs";
 import { TextToSpeechClient } from "@google-cloud/text-to-speech";
 
-// Wczytaj dane z pliku JSON (klucz z Google Cloud)
-const credentials = JSON.parse(fs.readFileSync("./vocal-ceiling-475815-u5-6b14ff369025.json", "utf8"));
+// 🔐 najpierw spróbuj z ENV (Render), a lokalnie czytaj z pliku:
+const credentials = process.env.GOOGLE_TTS_JSON
+  ? JSON.parse(process.env.GOOGLE_TTS_JSON)
+  : JSON.parse(fs.readFileSync("./vocal-ceiling-475815-u5-6b14ff369025.json", "utf8"));
+
 const ttsClient = new TextToSpeechClient({ credentials });
+
 
 const app = express();
 app.use(express.json());
