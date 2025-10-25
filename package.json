@@ -1,18 +1,16 @@
 {
   "name": "tts-proxy",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@google-cloud/text-to-speech": "^6.3.1",
+    "express": "^4.19.2",
     "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.0",
+    "@google-cloud/text-to-speech": "^5.5.0"
   }
 }
+
